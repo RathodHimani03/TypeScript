@@ -1,71 +1,19 @@
 "use strict";
-class Department {
-    constructor(id, name) {
-        this.id = id;
-        this.name = name;
-        this.employee = [];
+let add;
+add = (n1, n2) => {
+    return n1 + n2;
+};
+class Person {
+    constructor(n, age) {
+        this.name = n;
+        this.age = age;
     }
-    describe() {
-        console.log('Depatment:' + this.name);
-    }
-    addemployee(employee) {
-        this.employee.push(employee);
-    }
-    printEmployeeInformation() {
-        console.log(this.employee.length);
-        console.log(this.employee);
+    greet(phrase) {
+        console.log(phrase + '' + this.name);
     }
 }
-class ITDepartment extends Department {
-    constructor(id, admins) {
-        super(id, 'IT');
-        this.admins = admins;
-    }
-}
-class AccountingDepartment extends Department {
-    get mostRecentReport() {
-        if (this.lastReport) {
-            return this.lastReport;
-        }
-        throw new Error("Now report found.");
-    }
-    set mostRecentReport(value) {
-        if (!value) {
-            throw new Error("Please Enter valid value");
-        }
-        this.addReport(value);
-    }
-    constructor(id, reports) {
-        super(id, 'Accounting');
-        this.reports = reports;
-        this.lastReport = reports[0];
-    }
-    addemployee(name) {
-        if (name === 'Max') {
-            return;
-        }
-        this.employee.push(name);
-    }
-    addReport(text) {
-        this.reports.push(text);
-        this.lastReport = text;
-    }
-    printReport() {
-        console.log(this.reports);
-    }
-}
-const it = new ITDepartment('d1', ['Max']);
-it.addemployee("ashu");
-it.addemployee("mihir");
-console.log(it.admins);
-console.log(it);
-console.log(it.name);
-it.describe();
-const accounting = new AccountingDepartment('d2', []);
-accounting.mostRecentReport = 'ashutosh';
-console.log(accounting.mostRecentReport);
-accounting.addReport("Something went wrong...........");
-accounting.printReport();
-accounting.addemployee('ashu');
-accounting.printEmployeeInformation();
+let user1;
+user1 = new Person("ashutosh", 20);
+user1.greet('Hello world!-I am ');
+console.log(user1);
 //# sourceMappingURL=app.js.map
