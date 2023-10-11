@@ -8,6 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: 'dist'
   },
+ target:'web',
   devtool: 'inline-source-map',
   module: {
     rules: [
