@@ -49,6 +49,21 @@ const addButtonHandler = () => {
         alert('please Enter the currency and count!');
     }
 };
+//update operation
+const modifieContent = (id, total, count) => {
+    var _a, _b;
+    if (count === 0) {
+        alert('notes are not available!');
+    }
+    else {
+        let ncount = (_a = document.getElementById(id)) === null || _a === void 0 ? void 0 : _a.children[2];
+        let ntotal = (_b = document.getElementById(id)) === null || _b === void 0 ? void 0 : _b.children[3];
+        ncount.textContent = count;
+        ntotal.textContent = total;
+    }
+    // table.querySelectorAll('tr')[id].children[2].textContent = count
+    // table.querySelectorAll('tr')[id].children[3].textContent = total
+};
 //Calcute amount operation
 const displaycalculation = (calcValue) => {
     let temArr = [];
@@ -95,6 +110,8 @@ const displaycalculation = (calcValue) => {
                 temArr.push(tempObject);
             }
             console.log(temArr);
+            console.log('tempObject');
+            console.log(tempObject);
         }
     }
     let getsum = [];
@@ -122,16 +139,17 @@ const displaycalculation = (calcValue) => {
                             console.log('****');
                             if (k == r) {
                                 id = tableObj[r]['id'];
-                                console.log(parseInt(i[j] * tableObj[r]['currencyValue']));
+                                console.log(+(i[j] * tableObj[r]['currencyValue']));
                                 console.log(parseInt(i[k]));
-                                tvalue = parseInt(tableObj[r]['total']) - parseInt(i[k] * tableObj[r]['currencyValue']);
-                                cvalue = parseInt(tableObj[r]['countValue']) - parseInt(i[k]);
+                                tvalue = +(tableObj[r]['total']) - +(i[k] * tableObj[r]['currencyValue']);
+                                cvalue = +(tableObj[r]['countValue']) - parseInt(i[k]);
                                 tableObj[r]['total'] = tvalue;
                                 tableObj[r]['countValue'] = cvalue;
                                 console.log(`>>>`);
-                                c += parseInt(i[k] * tableObj[r]['currencyValue']);
-                                console.log(parseInt(i[k] * tableObj[r]['currencyValue']));
-                                creatdiv2.textContent += ` ${parseInt(tableObj[r]['currencyValue'])} x ${(parseInt(i[k]))} = ${(parseInt(i[k] * tableObj[r]['currencyValue']))}`;
+                                c += +(i[k] * tableObj[r]['currencyValue']);
+                                console.log(+(i[k] * tableObj[r]['currencyValue']));
+                                creatdiv2.textContent += ` ${+(tableObj[r]['currencyValue'])} x ${(parseInt(i[k]))} = 
+                                ${(+(i[k] * tableObj[r]['currencyValue']))}`;
                                 if (c == calcValue) {
                                     creatdiv2.textContent += `= ${calcValue}`;
                                 }
