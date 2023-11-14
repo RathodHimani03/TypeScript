@@ -1,0 +1,33 @@
+Q5.find the difference of Bulebird promise and javascript promise.
+
+
+*Bulebird:
+
+-Bluebird JS is a fully-featured Promise library for JavaScript. 
+-The strongest feature of Bluebird is that it allows you to
+ “promisify” other Node modules in order to use them asynchronously.
+-Promisify(converts a single callback taking function into a promise returning function)
+is a concept applied to callback functions. This concept is used to ensure that every 
+callback functionwhich is called returns some value.
+
+-->Bluebird library preserves the stack trace internally.
+
+
+*Promise
+-The Promise object represents the eventual completion (or failure) of an asynchronous
+ operation and its resulting value.
+ -A Promise is in one of these states:
+    pending: initial state, neither fulfilled nor rejected.
+    fulfilled: meaning that the operation was completed successfully.
+    rejected: meaning that the operation failed.
+-The eventual state of a pending promise can either be fulfilled with
+a value or rejected with a reason (error). When either of these options occur,
+the associated handlers queued up by a promise's then method are called.
+-A promise is said to be settled if it is either fulfilled or rejected, but not pending.
+-The .then() method takes up to two arguments; the first argument is a callback function
+ for the fulfilled case of the promise, and the second argument is a callback function 
+ for the rejected case.
+-Each .then() returns a newly generated promise object, which can optionally be used for chaining.
+
+-->Stack trace is lost in the callback.
+-->Exceptions are not handled.
